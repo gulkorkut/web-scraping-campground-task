@@ -28,4 +28,3 @@ CMD ["python", "main.py"]
 
 #for flask and cron version
 #CMD ["sh", "-c", "cron && tail -f /var/log/cron.log & uvicorn api:app --host 0.0.0.0 --port 8000"]
-
