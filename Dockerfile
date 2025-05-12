@@ -17,12 +17,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+CMD ["python", "main.py"]
+
 # cron job to run scheduler.py
-RUN echo "* * * * * root python /app/scheduler.py >> /var/log/cron.log 2>&1" > /etc/cron.d/scheduler-job
+#RUN echo "* * * * * root python /app/scheduler.py >> /var/log/cron.log 2>&1" > /etc/cron.d/scheduler-job
 
 # cron job
-RUN chmod 0644 /etc/cron.d/scheduler-job && \
-    crontab /etc/cron.d/scheduler-job
+#RUN chmod 0644 /etc/cron.d/scheduler-job && \
+#    crontab /etc/cron.d/scheduler-job
 
-# Start cron and the app
-CMD ["sh", "-c", "cron && tail -f /var/log/cron.log & python main.py"]
+#for flask and cron version
+#CMD ["sh", "-c", "cron && tail -f /var/log/cron.log & uvicorn api:app --host 0.0.0.0 --port 8000"]
+

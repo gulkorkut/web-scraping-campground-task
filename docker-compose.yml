@@ -22,4 +22,8 @@ services:
       - .:/src
     environment:
       DB_URL: postgresql://user:password@postgres:5432/case_study
-    restart: always
+#for cron
+#    restart: always
+#for flask   
+#    ports:
+#      - "8000:8000"
